@@ -1,11 +1,26 @@
 import React, {Component} from 'react';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 
 class write extends Component{
-
+    constructor(){
+        super()
+        this.state = {
+            editorContent: "nifty"
+        }
+        this.setValue = this.setValue.bind(this);
+    }
+  
+    setValue(event){
+        console.log(this.state.editorContent)
+        this.state.editorContent = event      
+    }
     render(){
+        let value = this.state.value
         return(
-            <p > I'm writeI'm writeI'm writeI'm writeI'm writeI'm writeI'm writeI'm write </p>
+            
+            <ReactQuill theme="snow" value={this.state.editorContent} onChange={this.setValue}/>
         )
     }
 }
